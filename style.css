@@ -34,6 +34,8 @@
     width: 90%;
     height: 100%;
     min-height: 100px;
+    max-height: 300px;
+    
     padding-right: 20px;
     padding-left: 20px;
     padding-top: 10px;
@@ -52,6 +54,10 @@
 .calculadora-board-previous-number {
     color: #9e9e9e;
     font-size: 1.3rem;
+}
+.calculadora-board-previous-number, .calculadora-board-current-number {
+  word-break: break-all;
+    max-width: 400px;
 }
 .previous-number-container {
     display: flex;
