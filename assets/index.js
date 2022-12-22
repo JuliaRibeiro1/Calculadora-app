@@ -22,9 +22,6 @@ if(button.innerText == ".") {
                 currentNumber.innerText = "0"
         }
 }
-if(button.innerText == "%") {
-
-}
 if(currentNumber.innerText > 1000000000000000) {
         currentNumber.innerText = currentNumber.innerText
 }
@@ -33,7 +30,6 @@ if(currentNumber.innerText > 1000000000000000) {
 ));
 
 operationSymbols.forEach(button => button.addEventListener("click",function(e) {
-        
         counter++
         currentOperationSymbol = button.innerText
         currentBoardSymbol.innerText = currentOperationSymbol
@@ -47,18 +43,17 @@ operationSymbols.forEach(button => button.addEventListener("click",function(e) {
         previousNumber.innerText = numbersArr.at(-1) 
         symbolArr.push(currentOperationSymbol)
 
-if((currentBoardSymbol.innerText == "x²")||(currentBoardSymbol.innerText == "√")) {
-        r = operations[symbolArr.at(-1)](parseFloat(numbersArr.at(-1))) 
-        previousNumber.innerText = r
-        currentNumber.innerText = ""
-        numbersArr.push(r)   
+switch(currentBoardSymbol.innerText) {
+        case "√":
+        case "%":
+        case "x²":
+                r = operations[symbolArr.at(-1)](parseFloat(numbersArr.at(-1))) 
+                previousNumber.innerText = r
+                currentNumber.innerText = ""
+                currentBoardSymbol.innerText = ""
+                numbersArr.push(r)  
 }
-if((currentNumber.innerText == "%")) {
-        r = operations[symbolArr.at(-1)](parseFloat(numbersArr.at(-1)))
-        previousNumber.innerText = r
-        currentBoardSymbol.innerText = ""
-        numbersArr.push(r)  
-}
+
 if(numbersArr.length > 1) {
                 if(currentNumber.innerText !== "") {
                        r = operations[symbolArr.at(-2)](parseFloat(numbersArr.at(-2)),parseFloat(numbersArr.at(-1))) 
@@ -70,8 +65,12 @@ currentNumber.innerText = ""
 }
 ))
 deleteLastNumberBtn.addEventListener("click",() => {
-        let deleteLastNumberArray = Array.from(currentNumber.innerText).shift()
-        currentNumber.innerText = deleteLastNumberArray
+       let currentNumberArray = Array.from(currentNumber.innerText)
+        let LastNumberPop = currentNumberArray.pop()
+        currentNumber.innerText = parseFloat(currentNumberArray.join(""))
+        if(currentNumberArray.length < 1) {
+                currentNumber.innerText = ""
+        }
 })
 deleteAllButton.addEventListener("click", () => {
         currentNumber.innerText = ""
