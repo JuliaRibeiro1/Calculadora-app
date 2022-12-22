@@ -7,7 +7,7 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+   /* align-items: center;*/
 }
 .calculadora-container {
     display: flex;
@@ -17,7 +17,9 @@
     margin: 0 auto;
     background-color: #F0EFEF;
     width: 30%;
-    height: 80%;
+   /* height: 100%;
+    max-height: 450px;*/
+    margin-top: 100px;
     padding-bottom: 2em;
     box-shadow:2px 2px 15px 0px #cdcdcd;
 }
@@ -35,17 +37,16 @@
     height: 100%;
     min-height: 100px;
     max-height: 300px;
-    
     padding-right: 20px;
     padding-left: 20px;
     padding-top: 10px;
     padding-bottom: 10px;
-    height: 20%;
     display: flex;
     align-items: end;
     flex-direction: column;
     font-size: 2rem;
     background-color: rgb(252, 252, 252);
+    box-shadow:2px 2px 15px 0px #cdcdcd; 
 }
 .calculadora-board div {
     padding: 2px;
@@ -67,8 +68,11 @@
 .calculadora-grid-main {
     display: grid ; 
     grid-template-columns:repeat(3,auto); 
-    margin: 15px -10px 0 0;
-
+    margin: 35px 30px;
+    grid-gap: 2px 2px;
+    height: 80%;
+    width: 100%;
+   
 }
 
 .calculadora-flexbox-top {
